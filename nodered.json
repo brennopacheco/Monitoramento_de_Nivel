@@ -1,0 +1,681 @@
+[
+    {
+        "id": "d421c0aba5f7dc79",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "27100883530b6945",
+        "type": "group",
+        "z": "d421c0aba5f7dc79",
+        "name": "",
+        "style": {
+            "stroke": "#ff0000",
+            "label": true
+        },
+        "nodes": [
+            "76429c31812cca19",
+            "3a200acee4b0c5d6",
+            "526e87980fe6fb27",
+            "5c84b3d6aa2cf9a3",
+            "3e669170887ec79b",
+            "6d40950b4b611d9b",
+            "8d260b5d43e42f31",
+            "5df0be2755e9f735"
+        ],
+        "x": 14,
+        "y": 99,
+        "w": 892,
+        "h": 262
+    },
+    {
+        "id": "8b85f1f36771f192",
+        "type": "group",
+        "z": "d421c0aba5f7dc79",
+        "name": "",
+        "style": {
+            "stroke": "#ff0000",
+            "label": true
+        },
+        "nodes": [
+            "586f1f95208c59ed",
+            "2ed9d9c4798eacdc",
+            "8052e2fb6cbc37fe",
+            "dc5e49c01ac64176",
+            "ea52aa17f9bc81eb",
+            "807c4780d72c77f6",
+            "265a5a8e670c6e9b",
+            "e457b1bd15a94bdf"
+        ],
+        "x": 14,
+        "y": 379,
+        "w": 712,
+        "h": 302
+    },
+    {
+        "id": "7c78878544115fcb",
+        "type": "group",
+        "z": "d421c0aba5f7dc79",
+        "name": "",
+        "style": {
+            "stroke": "#ff0000",
+            "label": true
+        },
+        "nodes": [
+            "de0b2266e5b638d6",
+            "26429089ed999d7a",
+            "31edb304144bf5e1",
+            "98c31b85d6e5d4d9",
+            "458f27a259ace695",
+            "73643bd05579a868",
+            "d710a82880d212ad",
+            "0ac15d478e80e5c8",
+            "47d094871ace7e9d",
+            "bd5ab85b6d65c360",
+            "40fa7548e1da1e15",
+            "5bad803f49e3f843",
+            "74d45e830883654c"
+        ],
+        "x": 14,
+        "y": 719,
+        "w": 632,
+        "h": 462
+    },
+    {
+        "id": "76429c31812cca19",
+        "type": "comment",
+        "z": "d421c0aba5f7dc79",
+        "g": "27100883530b6945",
+        "name": "Coleta Informações do Factory IO",
+        "info": "",
+        "x": 170,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "3a200acee4b0c5d6",
+        "type": "modbustcp-read",
+        "z": "d421c0aba5f7dc79",
+        "g": "27100883530b6945",
+        "name": "Ler Entradas Discretas",
+        "topic": "",
+        "dataType": "Input",
+        "adr": "0",
+        "quantity": "4",
+        "rate": "3",
+        "rateUnit": "s",
+        "server": "9c9c9da45f9a4d08",
+        "ieeeType": "off",
+        "ieeeBE": true,
+        "x": 360,
+        "y": 200,
+        "wires": [
+            [
+                "8d260b5d43e42f31"
+            ]
+        ]
+    },
+    {
+        "id": "526e87980fe6fb27",
+        "type": "debug",
+        "z": "d421c0aba5f7dc79",
+        "g": "27100883530b6945",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5c84b3d6aa2cf9a3",
+        "type": "inject",
+        "z": "d421c0aba5f7dc79",
+        "g": "27100883530b6945",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "3a200acee4b0c5d6",
+                "3e669170887ec79b"
+            ]
+        ]
+    },
+    {
+        "id": "3e669170887ec79b",
+        "type": "modbustcp-read",
+        "z": "d421c0aba5f7dc79",
+        "g": "27100883530b6945",
+        "name": "Ler Registros de Entrada",
+        "topic": "",
+        "dataType": "InputRegister",
+        "adr": "0",
+        "quantity": "2",
+        "rate": "3",
+        "rateUnit": "s",
+        "server": "9c9c9da45f9a4d08",
+        "ieeeType": "off",
+        "ieeeBE": true,
+        "x": 370,
+        "y": 280,
+        "wires": [
+            [
+                "5df0be2755e9f735",
+                "6d40950b4b611d9b"
+            ]
+        ]
+    },
+    {
+        "id": "6d40950b4b611d9b",
+        "type": "debug",
+        "z": "d421c0aba5f7dc79",
+        "g": "27100883530b6945",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "8d260b5d43e42f31",
+        "type": "function",
+        "z": "d421c0aba5f7dc79",
+        "g": "27100883530b6945",
+        "name": "Factory IO está Rodando",
+        "func": "msg.payload = msg.payload[3]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 200,
+        "wires": [
+            [
+                "526e87980fe6fb27"
+            ]
+        ]
+    },
+    {
+        "id": "5df0be2755e9f735",
+        "type": "function",
+        "z": "d421c0aba5f7dc79",
+        "g": "27100883530b6945",
+        "name": "Salva os Dados nas variáveis do Node-RED",
+        "func": "var level_meter = msg.payload[0]\nvar flow_meter = msg.payload[1]\n\nflow.set('level_meter', level_meter)\nflow.set('flow_meter', flow_meter)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "586f1f95208c59ed",
+        "type": "inject",
+        "z": "d421c0aba5f7dc79",
+        "g": "8b85f1f36771f192",
+        "name": "1s",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 460,
+        "wires": [
+            [
+                "2ed9d9c4798eacdc",
+                "ea52aa17f9bc81eb"
+            ]
+        ]
+    },
+    {
+        "id": "2ed9d9c4798eacdc",
+        "type": "function",
+        "z": "d421c0aba5f7dc79",
+        "g": "8b85f1f36771f192",
+        "name": "Transformação de Dados 1",
+        "func": "var saida_liquido;\nif (flow.get('flow_meter') != 0) {\n    saida_liquido = true\n} else {\n    saida_liquido = false\n}\n\nmsg.payload = {\n    level_meter: flow.get('level_meter')/10,\n    saida_liquido: saida_liquido\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 460,
+        "wires": [
+            [
+                "8052e2fb6cbc37fe",
+                "dc5e49c01ac64176"
+            ]
+        ]
+    },
+    {
+        "id": "8052e2fb6cbc37fe",
+        "type": "debug",
+        "z": "d421c0aba5f7dc79",
+        "g": "8b85f1f36771f192",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "dc5e49c01ac64176",
+        "type": "influxdb out",
+        "z": "d421c0aba5f7dc79",
+        "g": "8b85f1f36771f192",
+        "influxdb": "c0571c8e8a176a3e",
+        "name": "Banco de Dados",
+        "measurement": "Tabela_tanque",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "faustino",
+        "bucket": "bucket_01",
+        "x": 610,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "ea52aa17f9bc81eb",
+        "type": "function",
+        "z": "d421c0aba5f7dc79",
+        "g": "8b85f1f36771f192",
+        "name": "Transformação de Dados 2",
+        "func": "var flow_meter = flow.get('flow_meter')/100\nvar level_meter = flow.get('level_meter')/100\n\n\nmsg.payload = {\n    total: (level_meter/10)*9.4245,\n    flow_meter: (flow_meter/10)*0.3543,\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 600,
+        "wires": [
+            [
+                "807c4780d72c77f6",
+                "265a5a8e670c6e9b"
+            ]
+        ]
+    },
+    {
+        "id": "807c4780d72c77f6",
+        "type": "debug",
+        "z": "d421c0aba5f7dc79",
+        "g": "8b85f1f36771f192",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "265a5a8e670c6e9b",
+        "type": "influxdb out",
+        "z": "d421c0aba5f7dc79",
+        "g": "8b85f1f36771f192",
+        "influxdb": "c0571c8e8a176a3e",
+        "name": "Banco de Dados",
+        "measurement": "Tabela_tanque",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "faustino",
+        "bucket": "bucket_01",
+        "x": 610,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "e457b1bd15a94bdf",
+        "type": "comment",
+        "z": "d421c0aba5f7dc79",
+        "g": "8b85f1f36771f192",
+        "name": "Transformação e Envio dos Dados",
+        "info": "",
+        "x": 180,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "de0b2266e5b638d6",
+        "type": "aedes broker",
+        "z": "d421c0aba5f7dc79",
+        "g": "7c78878544115fcb",
+        "name": "",
+        "mqtt_port": 1883,
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": "",
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "certname": "",
+        "keyname": "",
+        "persistence_bind": "memory",
+        "dburl": "",
+        "usetls": false,
+        "x": 130,
+        "y": 800,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "26429089ed999d7a",
+        "type": "mqtt out",
+        "z": "d421c0aba5f7dc79",
+        "g": "7c78878544115fcb",
+        "name": "",
+        "topic": "topico/niveltanque",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3dd18668cfb69b4b",
+        "x": 530,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "31edb304144bf5e1",
+        "type": "inject",
+        "z": "d421c0aba5f7dc79",
+        "g": "7c78878544115fcb",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 920,
+        "wires": [
+            [
+                "73643bd05579a868"
+            ]
+        ]
+    },
+    {
+        "id": "98c31b85d6e5d4d9",
+        "type": "mqtt in",
+        "z": "d421c0aba5f7dc79",
+        "g": "7c78878544115fcb",
+        "name": "",
+        "topic": "topico/niveltanque",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "3dd18668cfb69b4b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 1140,
+        "wires": [
+            [
+                "458f27a259ace695"
+            ]
+        ]
+    },
+    {
+        "id": "458f27a259ace695",
+        "type": "debug",
+        "z": "d421c0aba5f7dc79",
+        "g": "7c78878544115fcb",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "73643bd05579a868",
+        "type": "function",
+        "z": "d421c0aba5f7dc79",
+        "g": "7c78878544115fcb",
+        "name": "function ",
+        "func": "msg.payload = {\n    level_meter: flow.get('level_meter')/10,\n    \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 920,
+        "wires": [
+            [
+                "26429089ed999d7a"
+            ]
+        ]
+    },
+    {
+        "id": "d710a82880d212ad",
+        "type": "comment",
+        "z": "d421c0aba5f7dc79",
+        "g": "7c78878544115fcb",
+        "name": "MQTT",
+        "info": "Modelo Publicador/Assinante (Pub/Sub):\nEm vez de uma comunicação direta entre remetente e destinatário,\no MQTT usa um modelo de comunicação pub/sub. Nesse modelo, \nos clientes se conectam a um servidor central (o broker) e \npodem publicar mensagens em tópicos ou assinar esses tópicos para receber mensagens.",
+        "x": 90,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "0ac15d478e80e5c8",
+        "type": "comment",
+        "z": "d421c0aba5f7dc79",
+        "g": "7c78878544115fcb",
+        "name": "Publicação de Mensagem",
+        "info": "",
+        "x": 150,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "47d094871ace7e9d",
+        "type": "comment",
+        "z": "d421c0aba5f7dc79",
+        "g": "7c78878544115fcb",
+        "name": "Assinatura de Tópico",
+        "info": "",
+        "x": 140,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "bd5ab85b6d65c360",
+        "type": "mqtt out",
+        "z": "d421c0aba5f7dc79",
+        "g": "7c78878544115fcb",
+        "name": "",
+        "topic": "topico/totalm3",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3dd18668cfb69b4b",
+        "x": 520,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "40fa7548e1da1e15",
+        "type": "inject",
+        "z": "d421c0aba5f7dc79",
+        "g": "7c78878544115fcb",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 1000,
+        "wires": [
+            [
+                "5bad803f49e3f843"
+            ]
+        ]
+    },
+    {
+        "id": "5bad803f49e3f843",
+        "type": "function",
+        "z": "d421c0aba5f7dc79",
+        "g": "7c78878544115fcb",
+        "name": "function ",
+        "func": "var level_meter = flow.get('level_meter') / 100\n\n\nmsg.payload = {\n    total: (level_meter / 10) * 9.4245,\n    \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 1000,
+        "wires": [
+            [
+                "bd5ab85b6d65c360"
+            ]
+        ]
+    },
+    {
+        "id": "74d45e830883654c",
+        "type": "comment",
+        "z": "d421c0aba5f7dc79",
+        "g": "7c78878544115fcb",
+        "name": "Publicação de Mensagem",
+        "info": "",
+        "x": 150,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "9c9c9da45f9a4d08",
+        "type": "modbustcp-server",
+        "name": "",
+        "host": "192.168.100.106",
+        "port": "502",
+        "unit_id": "1",
+        "reconnecttimeout": ""
+    },
+    {
+        "id": "c0571c8e8a176a3e",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "bucket_01",
+        "name": "",
+        "usetls": true,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086",
+        "timeout": "10",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "3dd18668cfb69b4b",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
